@@ -45,23 +45,28 @@ Lab Technician                                        Lab Incharge
         print(footer)
 
 #test choosing start here
-if (test == "cho"):
+if (test == "lip"):
     # test number 1 ( Lipid test)
     print("\n")
-    print("You choosed Cholesterol test ")
-    cho     = input("Enter cho level : ")
-    chotgl  = input("Enter TGL level :  ")
-    choldl  = input("Enter LDL level : ")
-    chohdl  = input("Enter HDL level : ")
-    chovldl = input("Enter VLDL level: ")
+    print("You choosed Lipid profile test ")
+    cho     = float(input("Enter cho level : "))
+    chotgl  = float(input("Enter TGL level : "))
+    chohdl  = float(input("Enter HDL level : "))
+    chovldl = chotgl/5 # VLDL = TGL/5
+    choldl  = cho - chohdl - chovldl # LDL = CHO - HDL - VLDL
     print("\n")
 
-    print("Cholesterol test")
-    print("Cholesterol level:", cho)
-    print("TGL level        :", chotgl)
-    print("LDL level        :", choldl)
-    print("HDL level        :", chohdl)
-    print("VLDL level       :", chovldl)
+    genral_det()
+    print("                           LIPID PROFIE")
+    print("                           ------------")
+    print("\n")
+    print("     Investigation        Patinet Value    Refrence Value")
+    print("-------------------------------------------------------------")
+    print("Cholesterol level       : ", cho," mg/dl   130 - 200 mg/dl")
+    print("TGL level               : ", chotgl," mg/dl   80  - 200 mg/dl")
+    print("LDL level               : ", choldl," mg/dl   Less than 160 mg/dl")
+    print("HDL level               : ", chohdl,"  mg/dl   Above 40 mg/dl")
+    print("VLDL level              : ", chovldl,"  mg/dl   Below 40 mg/dl")
     thanks_footer()
 
 elif (test == "urine"):
@@ -156,7 +161,12 @@ elif (test == "RFT"):
     rft_alkaline_phosphatase = input("Enter RFT alkaline phosphatase: ")
     print("\n")
     
-    print("RFT test")
+    genral_det()
+    print("                    RFT TEST")
+    print("                    ---------------------")
+    print("\n")
+    print("     Investigation        Patinet Value    Refrence Value")
+    print("-------------------------------------------------------------")
     print("Total RFT Billirubin    :", rft_total_billi)
     print("Direct RFT Billirubin   :", rft_direct_billi)
     print("Indirect RFT Billirubin :", rft_indirect_billi)

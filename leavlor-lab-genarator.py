@@ -1,17 +1,22 @@
 # code for manoor health report card
 
 from time import time
+from typing import Counter
 from unicodedata import name
 from datetime import date
 
 # input section starts here 
 name   = input("Enter patient  name       : ")
-age    = input("Enter patient age         : ")
+age    = int(input("Enter patient age         : "))
 gender = input("Enter Gender              : ")
 refno  = input("Refred by                 : ")
 test   = input("Enter the name of the test: ")
 today  = date.today()
+gender = gender.lower()
 test   = test.lower()
+
+
+#functions defined here
 
 #genral detailes on test
 def genral_det():
@@ -25,8 +30,16 @@ def genral_det():
             print("--------------------------------------------------------------------")
             print("\n")
 
+def error():
+           print("\n")
+           print(" Something went wrong")
+           print(" please contact Mr.Mohammed Jaseem ")
+           print(" Mob  : +91 8086  5000  23")
+           print(" Mail : mail@mohammedjaseem.me")
+           print(" Web  : www.mohammedjaseem.me")
+
 def thanks_footer():
-        print("------------------------------------------------------------")
+        print("------------------------------------------------------------------")
         footer = """
 
 
@@ -43,9 +56,263 @@ Lab Technician                                        Lab Incharge
         print("\n")
         print("\n")
         print(footer)
+        
+# Funtions delared ends here
 
-#test choosing start here
-if (test == "lip"):
+#Single test start here 
+#suagr test start here
+if test == "sugar":
+        print("\n")
+        print("""
+            Please Choose type of test:
+                 1. Fasting blood sugar - fbs
+                 2. Post prandial blood sugar - ppbs
+                 3. Random blood sugar - rbs
+                 4. 2 Sugar test  - 2sug""")
+        print("\n")
+        sugartype = input("Enter the type of sugar test: ")
+        sugartype = sugartype.lower()
+        print("\n")
+        if sugartype == "fbs":
+            fbs = input("Enter the fbs value: ")
+            genral_det()
+            print("\n")
+            print("     Investigation        Patinet Value    Refrence Value")
+            print("-------------------------------------------------------------")
+            print("  Fasting blood sugar      ",fbs,"mg/dl      70 - 110mg/dl")   
+            thanks_footer()    
+
+        elif sugartype == "ppbs":
+            ppbs = input("Enter the ppbs value: ")
+            genral_det()
+            print("\n")
+            print("     Investigation           Patinet Value    Refrence Value")
+            print("-------------------------------------------------------------")
+            print("  Post prandial blood sugar  ",ppbs,"mg/dl      70 - 140mg/dl")
+            thanks_footer() 
+            
+        elif sugartype == "rbs":
+            rbs = input("Enter the rbs value: ")
+            genral_det()
+            print("\n")
+            print("     Investigation           Patinet Value    Refrence Value")
+            print("-------------------------------------------------------------")
+            print("  Random blood sugar        ",rbs,"mg/dl        80 - 140mg/dl")
+            thanks_footer() 
+        
+        elif sugartype == "2sug":
+            ppbs2 = input("Enter the ppbs value: ")
+            fbs2  = input("Enter the fbs value: ")
+            genral_det()
+            print("\n")
+            print("     Investigation           Patinet Value    Refrence Value")
+            print("-------------------------------------------------------------")
+            print("  Fasting blood sugar        ",fbs2,"mg/dl       70 - 110mg/dl")
+            print("  Post prandial blood sugar  ",ppbs2,"mg/dl       70 - 140mg/dl")
+            thanks_footer() 
+        
+        else:
+            error()  
+
+#cholesterol test start here
+elif test == "chol":
+        chovalue = input("Enter the cholestrol value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("  Cholesterol               ",chovalue,"mg/dl         <200 Desirable")
+        print("                                               200 - 230 Border Line")
+        print("                                               > 230 High mg/dl")
+        thanks_footer()
+
+#triglyceridetest start here
+elif test == "tgl":
+        tglvalue = input("Enter the triglyceride value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("  Triglyceride              ",tglvalue,"mg/dl         80 - 200 mg/dl")
+        thanks_footer()
+
+#urea test start here
+elif test == "urea":
+        urea = input("Enter the urea value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("  Urea                      ",urea,"mg/dl         16.6 - 48.5 mg/dl")
+        thanks_footer()
+
+#creatinine test start here
+elif test == "cre":
+        cre = input("Enter the creatinine value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        if gender == "male":
+            print("  Creatinine                ",cre,"mg/dl         0.7 - 1.2 mg/dl")
+        else:
+            print("  Creatinine                ",cre,"mg/dl         0.5 - 0.9 mg/dl")
+        thanks_footer()
+
+#uricacid test start here
+elif test == "uric":
+        uric = input("Enter the uric acid value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        if gender == "male":
+            print("  Uric Acid                 ",uric,"mg/dl         3.7 - 7.0 mg/dl")
+        else:
+            print("  Uric Acid                 ",uric,"mg/dl         2.4 - 5.7 mg/dl")
+        thanks_footer()
+
+#Liver Funstion test start here
+elif test == "bil":
+        bil = float(input("Enter the Total bilirubin value: "))
+        dbill = float(input("Enter the Direct bilirubin value: "))
+        ibill = bil - dbill
+        ibill = round(ibill,2)
+        genral_det()
+        print("\n")
+        print("                      Bilirubin")
+        print("                      ---------")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("  Total Bilirubin           ",bil,"mg/dl         0.2 - 1.0 mg/dl")
+        print("  Direct Bilirubin          ",dbill,"mg/dl         0.0 - 0.2 mg/dl")
+        print("  Indirect Bilirubin        ",ibill,"mg/dl         0.0 - 1.0 mg/dl")
+        thanks_footer()
+
+#sgot test start here
+elif test == "sgot":
+        sgot = input("Enter the SGOT value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     SGOT                   ",sgot,"IU/L        5.0 - 35.0 IU/L")
+        thanks_footer()
+
+#sgpt test start here
+elif test == "sgpt":
+        sgpt = input("Enter the SGPT value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     SGPT                   ",sgpt,"IU/L        5.0 - 35.0 IU/L")
+        thanks_footer()
+
+#Total Protine test start here
+elif test == "pro":
+        pro = input("Enter the Total Protine value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     Total Protine           ",pro,"gr/dl         6.0 - 8.0 gr/dl")
+        thanks_footer()
+    
+#albumin test start here
+elif test == "alb":
+        alb = input("Enter the Albumin value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     Albumin                 ",alb,"gr/dl         2.5 - 5.5 gr/dl")
+        thanks_footer()
+
+#alkaline phos test start here
+elif test == "alp":
+        alkp = input("Enter the Alkaline Phosphate value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        if age <= 17:
+            print("     Alkaline Phosphate      ",alkp,"IU/L         104 - 390 IU/L")
+        else:
+            print("     Alkaline Phosphate      ",alkp,"IU/L         25 - 140 IU/L")
+        thanks_footer()
+
+#haemoglobin test start here
+elif test == "hb":
+        hb = input("Enter the Haemoglobin value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        if gender == "male":
+            print("     Haemoglobin             ",hb,"gr/dl         13.0 - 17.0 gr/dl")
+        else:
+            print("     Haemoglobin             ",hb,"gr/dl         12.0 - 15.0 gr/dl")
+        thanks_footer()
+
+#esr test start here
+elif test == "esr":
+        esr = input("Enter the ESR value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     ESR                     ",esr,"mm/Hour         <20 mm/Hour")
+        thanks_footer()
+
+#calcium test start here
+elif test == "cal":
+        cal = input("Enter the Calcium value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     Calcium                  ",cal,"""mg/dl        Children 0 - 10 days 7.6 - 10.4 mg/dI
+                                               Children 10 days - 2 years 9.0 - 11.0
+                                               Children 2 - 12 years 8.8 - 10.8 mg/dl
+                                               Children 12 - 18 years 8.4 - 10.2 mg/
+                                               Adults 18 - 60 years 8.6 - 10.0 mg/dI
+                                               Adults 60 -90 years 8.8 - 10.2 mg/dI
+                                               Adults > 90 years 8.2 - 9.6 mg/dI""")
+        thanks_footer()
+
+#rafactor test start here
+elif test == "ra":
+        ra = input("Enter the R-A-Factor value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     R-A-Factor              ",ra,"IU/ml         Upto 20 IU/ml")
+        thanks_footer()
+
+#sodium test start here
+elif test == "sod":
+        sod = input("Enter the Sodium value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     Sodium                  ",sod,"mEq/L         135 - 155 mEq/L")
+        thanks_footer()
+
+#potassium test start here
+elif test == "pot":
+        pot = input("Enter the Potassium value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     Potassium               ",pot,"mEq/L         3.5 - 5.6 mEq/L")
+        thanks_footer()
+
+#Grouptest choosing start here
+elif (test == "lip"):
     # test number 1 ( Lipid test)
     print("\n")
     print("You choosed Lipid profile test ")
@@ -73,37 +340,38 @@ elif (test == "urine"):
     # test number 2 (Urine test)
     print("\n")
     print("You choosed Urine test")
-    urineprotein    = input("Enter protein level         : ")
-    urinesugar      = input("Enter sugar level           : ")
-    urineketone     = input("Enter ketone level          : ")
-    urinebilirubin  = input("Enter bilirubin level       : ")
     urinecolor      = input("Enter urine color           : ")
     urineappearance = input("Enter urine appearance      : ")
-    urinereactio    = input("Enter urine reaction        : ")
-    urinerbc        = input("Enter urine RBC level       : ")
+    urinereaction   = input("Enter urine reaction        : ")
+    urinesugar      = input("Enter urine sugar level     : ")
+    urineprotein    = input("Enter protein level         : ")
+    print("\n")
+    print ("Microscopic examination of urine")
+    print("\n")
     urinepuscell    = input("Enter urine puscells level  : ")
+    urinerbc        = input("Enter urine RBC level       : ")
     urineepithelial = input("Enter urine epithelial level: ")
-    urinebacteria   = input("Enter urine bacteria level  : ")
-    urineyeast      = input("Enter urine yeast level     : ")
     urinecast       = input("Enter urine cast level      : ")
     urinecrys       = input("Enter urine crystals level  : ")
+    urinebacteria   = input("Enter urine bacteria level  : ")
 
     genral_det()
-    print("Urine test")
-    print("Protein level   :", urineprotein)
-    print("Sugar level     :", urinesugar)
-    print("Ketone level    :", urineketone)
-    print("Bilirubin level :", urinebilirubin)
-    print("Urine color     :", urinecolor)
-    print("Urine appearance:", urineappearance)
-    print("Urine reaction  :", urinereactio)
-    print("RBC level       :", urinerbc)
-    print("Pus cells level :", urinepuscell)
-    print("Epithelial level:", urineepithelial)
-    print("Bacteria level  :", urinebacteria)
-    print("Yeast level     :", urineyeast)
-    print("Cast level      :", urinecast)
-    print("Crystals level  :", urinecrys)
+    print("                           Urine Routine")
+    print("                           -------------")
+    print("\n")
+    print("     Investigation        Patinet Value ")
+    print("----------------------------------------")
+    print("Urine color               :", urinecolor)
+    print("Urine appearance          :", urineappearance)
+    print("Urine reaction            :", urinereaction)
+    print("Urine sugar               :", urinesugar)
+    print("Urine protein             :", urineprotein)
+    print("Urine pusscells           :", urinepuscell)
+    print("Urine RBC                 :", urinerbc)
+    print("Urine epithelial          :", urineepithelial)
+    print("Urine cast                :", urinecast)
+    print("Urine crystals            :", urinecrys)
+    print("Urine bacteria            :", urinebacteria)
     thanks_footer()
 
 
@@ -145,44 +413,89 @@ elif (test == "lft"):
     print("A/g ratio               :    ", lft_ag_ratio_calc )
     thanks_footer()
 
-elif (test == "RFT"):
+elif (test == "rft"):
     # test number 4 (RFT test)
     print("\n")
     print("You choosed RFT test")
-    rft_total_billi          = input("Enter total RFT Billirubin    : ")
-    rft_direct_billi         = input("Enter direct RFT Billirubin   : ")
-    rft_indirect_billi       = input("Enter indirect RFT Billirubin : ")
-    rft_sgot_ast             = input("Enter Sgot ast                : ")
-    rft_sgot_alt             = input("Enter Sgot alt                : ")
-    rft_total_protien        = input("Enter total RFT protien       : ")
-    rft_albumin              = input("Enter RFT albumin             : ")
-    rft_globulin             = input("Enter RFT globulin            : ")
-    rft_ag_ratio             = input("Enter RFT ag ratio            : ")
-    rft_alkaline_phosphatase = input("Enter RFT alkaline phosphatase: ")
+    rft_blood_urea           = float(input("Enter blood urea level        : "))
+    rft_blood_creatinine     = input("Enter blood creatinine level  : ")
+    rft_uric_acid            = input("Enter uric acid level         : ")
     print("\n")
     
     genral_det()
-    print("                    RFT TEST")
-    print("                    ---------------------")
+    print("               Renal Function Test")
+    print("               -------------------")
     print("\n")
     print("     Investigation        Patinet Value    Refrence Value")
     print("-------------------------------------------------------------")
-    print("Total RFT Billirubin    :", rft_total_billi)
-    print("Direct RFT Billirubin   :", rft_direct_billi)
-    print("Indirect RFT Billirubin :", rft_indirect_billi)
-    print("Sgot ast                :", rft_sgot_ast)
-    print("Sgot alt                :", rft_sgot_alt)
-    print("Total RFT protien       :", rft_total_protien)
-    print("RFT albumin             :", rft_albumin)
-    print("RFT globulin            :", rft_globulin)
-    print("RFT ag ratio            :", rft_ag_ratio)
-    print("RFT alkaline phosphatase:", rft_alkaline_phosphatase)
+    print("Blood Urea level       :  ",rft_blood_urea,"mg/dl       16.6 - 48.5 mg/dl")
+    if (gender == "male"):
+            print("Blood Creatinine level :   ",rft_blood_creatinine,"mg/dl       0.7 - 1.2 mg/dl")
+            print("Uric Acid level        :   ",rft_uric_acid,"mg/dl       3.7 - 7.0 mg/dl")
+    else:
+            print("Blood Creatinine level :   ",rft_blood_creatinine,"mg/dl       0.5 - 0.9 mg/dl")
+            print("Uric Acid level        :   ",rft_uric_acid,"mg/dl       2.4 - 5.7 mg/dl")
     thanks_footer()
 
-else:
+elif (test == "cbc"):
+    # test number 5 (CBC test)
     print("\n")
-    print("You choosed wrong test ")
+    print("You choosed CBC test")
+    cbc_hb                  = input("Enter Hb level                : ")
+    cbc_wbc                 = input("Enter WBC level               : ")
+    print("\n")
+    print("Differential Counts")
+    print("-------------------")
+    cbc_neutrophils         = input("Enter neutrophils level       : ")
+    cbc_lymphocytes         = input("Enter lymphocytes level       : ")
+    cbc_eosinophils         = input("Enter eosinophils level       : ")
+    cbc_monocytes           = input("Enter monocytes level         : ")
+    cbc_basophils           = input("Enter basophils level         : ")
+    cbc_rbc                 = input("Enter RBC level               : ")
+    cbc_platelets           = input("Enter platelets level         : ")
+    cbc_pcv                 = input("Enter pcv level               : ")
+    cbc_mcv                 = input("Enter mcv level               : ")
+    cbc_mch                 = input("Enter mch level               : ")
+    cbc_mchc                = input("Enter mchc level              : ")
+    cbc_esr                 = input("Enter esr level               : ")
+
+    genral_det()
+    print("               Complete blood count")
+    print("               --------------------")
+    print("\n")
+    print("     Investigation        Patinet Value              Refrence Value")
+    print("----------------------------------------------------------------------")
+    if (gender == "male"):
+        print("Haemoglobin            :  ",cbc_hb,"grams/dl            13.0 - 17.0 grams/dl")
+    else:
+        print("Haemoglobin level      :  ",cbc_hb,"grams/dl               12.0 - 15.0 grams/dl") 
+    print("Total WBC Count        :  ",cbc_wbc,"/cumm               4000 - 11000/cumm")
+    print("\n")
+    print("Differential Counts")
+    print("-------------------")
+    print("Neutrophils            :  ",cbc_neutrophils,"%                   40 - 70%")
+    print("Lymphocytes            :  ",cbc_lymphocytes,"%                   20 - 40%")
+    print("Eosinophils            :  ",cbc_eosinophils,"%                    0 - 5%")
+    print("Monocytes              :  ",cbc_monocytes,"%                     0 - 2%")
+    print("Basophils              :  ",cbc_basophils,"%                     0-1%")
+    if (gender == "male"):
+        print("RBC                    :  ",cbc_rbc,"million/cumm        4.5 - 6.0 million/cumm")
+    else:
+        print("RBC                    :  ",cbc_rbc,"million/cumm               4.0 - 5.5 million/cumm") 
+    print("Platelets              :  ",cbc_platelets,"Lakhs/cumm           1.5 - 4.5 Lakhs/cumm")
+    print("PCV (Hct)              :  ",cbc_pcv,"%                   40 - 60%")
+    print("MCV                    :  ",cbc_mcv," fl                 83 - 101 fl")
+    print("MCH                    :  ",cbc_mch," Pg                 27 - 33 Pg")
+    print("MCHC                   :  ",cbc_mchc," g/dl               30 - 36 g/dl")
+    print("ESR                    :  ",cbc_esr,"mm/hour               < 20 mm/hour")
     thanks_footer()
+
+
+
+else:
+    error()
+    
+    
  
 
 

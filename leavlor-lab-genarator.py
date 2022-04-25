@@ -135,6 +135,16 @@ elif (test == "bt"):
         print("  Time of bleeding          ",bleeding_time)
         thanks_footer()
 
+#absolute eosinophil test start here
+elif (test == "aec"):
+        aec = input("Enter the absolute eosinophil count: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("  Absolute eosinophil count ",aec," Cells/cumm         40 - 440 cells/cumm")  
+        thanks_footer()
+
 #cloating time test start here
 elif (test == "ct"):
         clotting_time = input("Enter the time of clotting: ")
@@ -380,6 +390,16 @@ elif test == "hcv":
         print("     Investigation           Patinet Value    Refrence Value")
         print("-------------------------------------------------------------")
         print("     HCV                     ",hcv)
+        thanks_footer()
+
+#crp test start here
+elif test == "crp":
+        crp = input("Enter the CRP value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print(" CRP level              :  ",crp_test,"IU/ml       > 6 IU/ml")
         thanks_footer()
 
 #vdrl test start here
@@ -1467,9 +1487,6 @@ elif (test == "pkg"):
     else:
         error()
     #package ends here
-
-
-
 
 else:
     error()

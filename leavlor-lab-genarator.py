@@ -115,6 +115,36 @@ if test == "sugar":
         else:
             error()  
 
+#blood group test start here
+elif (test == "rh"):
+        bloodgroup = input("Enter the blood group: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("  Blood group               ",bloodgroup)
+        thanks_footer()
+
+#bleeding test start here
+elif (test == "bt"):
+        bleeding_time = input("Enter the time of bleeding: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("  Time of bleeding          ",bleeding_time)
+        thanks_footer()
+
+#cloating time test start here
+elif (test == "ct"):
+        clotting_time = input("Enter the time of clotting: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("  Time of clotting          ",clotting_time)
+        thanks_footer()
+
 #cholesterol test start here
 elif test == "chol":
         chovalue = input("Enter the cholestrol value: ")
@@ -1437,6 +1467,7 @@ elif (test == "pkg"):
     else:
         error()
     #package ends here
+
 
 
 

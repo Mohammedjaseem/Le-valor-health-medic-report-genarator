@@ -10,7 +10,7 @@ name   = input("Enter patient  name       : ")
 age    = int(input("Enter patient age         : "))
 gender = input("Enter Gender              : ")
 refno  = input("Refred by                 : ")
-test   = input("Enter the name of the test: ")
+test   = input("Enter the name of the test/pacakage: ")
 today  = date.today()
 gender = gender.lower()
 test   = test.lower()
@@ -59,7 +59,8 @@ Lab Technician                                        Lab Incharge
         
 # Funtions delared ends here
 
-#Single test start here 
+#Single test's start here 
+
 #suagr test start here
 if test == "sugar":
         print("\n")
@@ -311,6 +312,69 @@ elif test == "pot":
         print("     Potassium               ",pot,"mEq/L         3.5 - 5.6 mEq/L")
         thanks_footer()
 
+#urine pregnancy test start here
+elif test == "upt":
+        urine = input("Enter the Urine Pregnancy value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     Urine Pregnancy         ",urine)
+        thanks_footer()
+
+#HIV test start here
+elif test == "hiv":
+        hiv = input("Enter the HIV value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     HIV                     ",hiv)
+        thanks_footer()
+
+#hbsag test start here
+elif test == "hbsag":
+        hbsag = input("Enter the HbsAg value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     HbsAg                   ",hbsag)
+        thanks_footer()
+
+#hcv test start here
+elif test == "hcv":
+        hcv = input("Enter the HCV value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     HCV                     ",hcv)
+        thanks_footer()
+
+#vdrl test start here
+elif test == "vdrl":
+        vdrl = input("Enter the VDRL value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     VDRL                    ",vdrl)
+        thanks_footer()
+
+#blood pressure test start here
+elif test == "bp":
+        sys = input("Enter the Systolic value: ")
+        dia = input("Enter the Diastolic value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print("     Systolic                ",sys,"mmHg         <120 mmHg")
+        print("     Diastolic               ",dia,"mmHg         <80 mmHg")
+        thanks_footer()
+
+
 #Grouptest choosing start here
 elif (test == "lip"):
     # test number 1 ( Lipid test)
@@ -490,7 +554,203 @@ elif (test == "cbc"):
     print("ESR                    :  ",cbc_esr,"mm/hour               < 20 mm/hour")
     thanks_footer()
 
+# package test's start here
+elif (test == "pkg"):
+    print(""" 
+    You choosed package test
+    1. 500  - Genaral Health Checkup
+    2. 700  - Masater Health Checkup
+    3. 1000 - Executive Health Checkup
+    4. 1500 - Diabetic Health Checkup
+    5. 2500 - Post Covid Health Checkup
+    """)
+      
+    package_test = int(input("Enter your choice : "))
+    if (package_test == 500):
+        print("\n")
+        print("Genaral Health Checkup")
+        print("--------------------")
+        print("Enter details for cbc test")
+        cbc_hb                  = input("Enter Hb level                : ")
+        cbc_wbc                 = input("Enter WBC level               : ")
+        print("\n")
+        print("Differential Counts")
+        print("-------------------")
+        cbc_neutrophils         = input("Enter neutrophils level       : ")
+        cbc_lymphocytes         = input("Enter lymphocytes level       : ")
+        cbc_eosinophils         = input("Enter eosinophils level       : ")
+        cbc_monocytes           = input("Enter monocytes level         : ")
+        cbc_basophils           = input("Enter basophils level         : ")
+        cbc_rbc                 = input("Enter RBC level               : ")
+        cbc_platelets           = input("Enter platelets level         : ")
+        cbc_pcv                 = input("Enter pcv level               : ")
+        cbc_mcv                 = input("Enter mcv level               : ")
+        cbc_mch                 = input("Enter mch level               : ")
+        cbc_mchc                = input("Enter mchc level              : ")
+        cbc_esr                 = input("Enter esr level               : ")
+        print("\n")
+        #2suagr input here
+        print("Enter Values of 2 sugar test")
+        print("----------------------------")
+        fbs2  = input("Enter the fbs value: ")
+        ppbs2 = input("Enter the ppbs value: ")
+        print("\n")
+        
+        #lipid profile input here
+        print("Enter values of Lipid profile test")
+        print("----------------------------------")
+        cho     = float(input("Enter cho level : "))
+        chotgl  = float(input("Enter TGL level : "))
+        chohdl  = float(input("Enter HDL level : "))
+        chovldl = chotgl/5 # VLDL = TGL/5
+        choldl  = cho - chohdl - chovldl # LDL = CHO - HDL - VLDL
+        print("\n")
 
+        #rft input here
+        print("Enter values of RFT test")
+        print("------------------------")
+        rft_blood_urea           = float(input("Enter blood urea level        : "))
+        rft_blood_creatinine     = input("Enter blood creatinine level  : ")
+        rft_uric_acid            = input("Enter uric acid level         : ")
+        print("\n")
+
+        #rtf input here
+        print("Enter values of LFT test")
+        print("------------------------")
+        lft_total_billi          = input("Enter total LFT Billirubin    : ")
+        lft_direct_billi         = input("Enter direct LFT Billirubin   : ")
+        lft_sgot_ast             = float(input("Enter Sgot ast                : "))
+        lft_sgpt_alt             = float(input("Enter Sgpt alt                : "))
+        lft_total_protien        = float(input("Enter total LFT protien       : "))
+        lft_albumin              = float(input("Enter LFT albumin             : "))
+        lft_alkaline_phosphatase = float(input("Enter LFT alkaline phosphatase: "))
+
+            #auto calculations in rft
+        lft_indirect_billi       = float(lft_total_billi) - float(lft_direct_billi)
+        lft_indirect_billi       = round(lft_indirect_billi,2)
+        lft_globulin             = float(lft_total_protien) - float(lft_albumin)
+        lft_globulin             = round(lft_globulin,2)
+        lft_ag_ratio_calc        = float(lft_albumin) / float(lft_globulin)
+        lft_ag_ratio_calc        = round(lft_ag_ratio_calc,2)
+
+        #urien routine input here
+        print("Enter values of urien routine test")
+        print("----------------------------------")
+        urinecolor      = input("Enter urine color           : ")
+        urineappearance = input("Enter urine appearance      : ")
+        urinereaction   = input("Enter urine reaction        : ")
+        urinesugar      = input("Enter urine sugar level     : ")
+        urineprotein    = input("Enter protein level         : ")
+        print("\n")
+
+        print ("Microscopic examination of urine")
+        print ("--------------------------------")
+        print("\n")
+        urinepuscell    = input("Enter urine puscells level  : ")
+        urinerbc        = input("Enter urine RBC level       : ")
+        urineepithelial = input("Enter urine epithelial level: ")
+        urinecast       = input("Enter urine cast level      : ")
+        urinecrys       = input("Enter urine crystals level  : ")
+        urinebacteria   = input("Enter urine bacteria level  : ")
+        print("\n")
+
+        #bp input here
+        print("Enter values of BP test")
+        sys = input("Enter the Systolic value: ")
+        dia = input("Enter the Diastolic value: ")
+
+        #package print start here
+        genral_det()
+        print("               Genaral Health Check up")
+        print("               -----------------------")
+        print("\n")
+        print("     Investigation        Patinet Value              Refrence Value")
+        print("----------------------------------------------------------------------")
+        if (gender == "male"):
+            print("Haemoglobin            :  ",cbc_hb,"grams/dl            13.0 - 17.0 grams/dl")
+        else:
+            print("Haemoglobin level      :  ",cbc_hb,"grams/dl               12.0 - 15.0 grams/dl") 
+        print("Total WBC Count        :  ",cbc_wbc,"/cumm               4000 - 11000/cumm")
+        print("\n")
+        print("Differential Counts")
+        print("-------------------")
+        print("Neutrophils            :  ",cbc_neutrophils,"%                   40 - 70%")
+        print("Lymphocytes            :  ",cbc_lymphocytes,"%                   20 - 40%")
+        print("Eosinophils            :  ",cbc_eosinophils,"%                    0 - 5%")
+        print("Monocytes              :  ",cbc_monocytes,"%                     0 - 2%")
+        print("Basophils              :  ",cbc_basophils,"%                     0-1%")
+        if (gender == "male"):
+            print("RBC                    :  ",cbc_rbc,"million/cumm        4.5 - 6.0 million/cumm")
+        else:
+            print("RBC                    :  ",cbc_rbc,"million/cumm               4.0 - 5.5 million/cumm") 
+        print("Platelets              :  ",cbc_platelets,"Lakhs/cumm           1.5 - 4.5 Lakhs/cumm")
+        print("PCV (Hct)              :  ",cbc_pcv,"%                   40 - 60%")
+        print("MCV                    :  ",cbc_mcv," fl                 83 - 101 fl")
+        print("MCH                    :  ",cbc_mch," Pg                 27 - 33 Pg")
+        print("MCHC                   :  ",cbc_mchc," g/dl               30 - 36 g/dl")
+        print("ESR                    :  ",cbc_esr,"mm/hour               < 20 mm/hour")
+        print("\n")
+
+        print("Blood Sugar")
+        print("------------")
+        print("Fasting blood sugar    :  ",fbs2,"mg/dl       70 - 110mg/dl")
+        print("Postprandial bloodsugar:  ",ppbs2,"mg/dl       70 - 140mg/dl")
+        print("\n")
+
+        print("Lipid Profile")
+        print("-------------")
+        print("Cholesterol level      : ", cho," mg/dl   130 - 200 mg/dl")
+        print("TGL level              : ", chotgl," mg/dl   80  - 200 mg/dl")
+        print("LDL level              : ", choldl," mg/dl   Less than 160 mg/dl")
+        print("HDL level              : ", chohdl,"  mg/dl   Above 40 mg/dl")
+        print("VLDL level             : ", chovldl,"  mg/dl   Below 40 mg/dl")
+        print("\n")
+
+        print("Renal Function Test")
+        print("--------------------")
+        print("Blood Urea level       :  ",rft_blood_urea,"mg/dl       16.6 - 48.5 mg/dl")
+        if (gender == "male"):
+            print("Blood Creatinine level  :   ",rft_blood_creatinine,"mg/dl       0.7 - 1.2 mg/dl")
+            print("Uric Acid level         :   ",rft_uric_acid,"mg/dl       3.7 - 7.0 mg/dl")
+        else:
+            print("Blood Creatinine level  :   ",rft_blood_creatinine,"mg/dl       0.5 - 0.9 mg/dl")
+            print("Uric Acid level         :   ",rft_uric_acid,"mg/dl       2.4 - 5.7 mg/dl")
+        print("\n")
+
+        print("Liver function test")
+        print("--------------------")
+        print("Total Billirubin        :    ", lft_total_billi,"mg/dl      0.2 - 1.0 mg/dl")
+        print("Direct Billirubin       :    ", lft_direct_billi,"mg/dl      0.0 - 0.2 mg/dl")
+        print("Indirect Billirubin     :    ", lft_indirect_billi,"mg/dl      0.0 - 1.0 mg/dl")
+        print("Sgot (ast)              :    ", lft_sgot_ast, "iu/L      05 - 35 iu/L")
+        print("Sgpt (alt)              :    ", lft_sgpt_alt, "iu/L      05 - 35 iu/L")
+        print("Total protien           :    ", lft_total_protien, "gr/dl      6 - 8 gr/dl")
+        print("Albumin                 :    ", lft_albumin, "gr/dl      2.5 - 5.5 gr/dl")
+        print("Globulin                :    ", lft_globulin, "gr/dl      1.5 -  3.5 gr/dl")
+        print("Alkaline phosphatase    :    ", lft_alkaline_phosphatase, "iu/L     25 - 140 iu/L")
+        print("A/g ratio               :    ", lft_ag_ratio_calc )
+        print("\n")
+
+        print("Urine Routine")
+        print("--------------")
+        print("Urine color             :", urinecolor)
+        print("Urine appearance        :", urineappearance)
+        print("Urine reaction          :", urinereaction)
+        print("Urine sugar             :", urinesugar)
+        print("Urine protein           :", urineprotein)
+        print("Urine pusscells         :", urinepuscell)
+        print("Urine RBC               :", urinerbc)
+        print("Urine epithelial        :", urineepithelial)
+        print("Urine cast              :", urinecast)
+        print("Urine crystals          :", urinecrys)
+        print("Urine bacteria          :", urinebacteria)
+        print("\n")
+
+        print("Blood Pressure")
+        print("--------------")
+        print("Systolic                :",sys,"mmHg         <120 mmHg")
+        print("iastolic                :",dia,"mmHg         <80 mmHg")
+        thanks_footer()
 
 else:
     error()

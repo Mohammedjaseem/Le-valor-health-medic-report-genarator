@@ -36,7 +36,6 @@ def patient_det():
         ----------------------------------------------------------------------------------------
           Srl No                        Investigation / Particulars                  Rate
         ----------------------------------------------------------------------------------------
-
          """.format(bill_no, ref_no, dt_string, date_collection, time_collection, patient_name, 
                     patient_gender, patient_age, ref_doctor, collected_at))
 
@@ -49,7 +48,10 @@ if ( test_cunt  >  0):
          test_price = float(input("Enter Test Price: "))
          patient_det()
          print("""
-            {}                           {}                                          {}                   
+            {}                           {}                                   {}                   
+         
+         
+                                          Total Amount: 
          """.format(test_count, test_name, test_price))
 else:
     print("No Test Found")

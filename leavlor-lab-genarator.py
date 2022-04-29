@@ -9,6 +9,7 @@ from datetime import date
 name   = input("Enter patient  name       : ")
 age    = int(input("Enter patient age         : "))
 gender = input("Enter Gender              : ")
+mob    = input("Enter Mobile Number       : ")
 refno  = input("Refred by                 : ")
 test   = input("Enter the name of the test/pacakage: ")
 today  = date.today()
@@ -16,18 +17,21 @@ gender = gender.lower()
 test   = test.lower()
 
 
-#functions defined here
+#functions defined here 
 
 #genral detailes on test
 def genral_det():
-            print("\n")
-            print("-------------------------------------------------------------------")
-            print("Le'valor Health                   Patinet Name : " + name )
-            print("Manoor, Edappal, Kerala, India    Gender       : " + gender)
-            print("Mob: +91 8086 5000 23             Age          :",age)
-            print("Web: www.levalorhealth.com        Date         :", today)
-            print("mail:info@levalorhealth.com       Referd by    :", refno)
-            print("--------------------------------------------------------------------")
+            print("""
+            
+            
+            
+            
+            
+Patinet Name   : {}                          Gender    : {} 
+Age            : {}                          Date      : {}
+Mobile nummber : {}                          Referd by : {}
+            
+--------------------------------------------------------------------""".format(name,gender,age,today,mob,refno))
             print("\n")
 
 def error():
@@ -399,7 +403,16 @@ elif test == "crp":
         print("\n")
         print("     Investigation           Patinet Value    Refrence Value")
         print("-------------------------------------------------------------")
-        print(" CRP level              :  ",crp_test,"IU/ml       > 6 IU/ml")
+        print(" CRP level              :  ",crp,"mg/dl       up to 6 mg/dl")
+        thanks_footer()
+
+elif test == "plt":
+        plt = input("Enter the PLT value: ")
+        genral_det()
+        print("\n")
+        print("     Investigation           Patinet Value    Refrence Value")
+        print("-------------------------------------------------------------")
+        print(" Platelets              :  ",plt,"Lakhs/cumm    > 1.5 - 4.5 Lakhs/cumm")
         thanks_footer()
 
 #vdrl test start here
@@ -589,14 +602,14 @@ elif (test == "cbc"):
     print("-------------------")
     print("Neutrophils            :  ",cbc_neutrophils,"%                   40 - 70%")
     print("Lymphocytes            :  ",cbc_lymphocytes,"%                   20 - 40%")
-    print("Eosinophils            :  ",cbc_eosinophils,"%                    0 - 5%")
+    print("Eosinophils            :  ",cbc_eosinophils,"%                     0 - 5%")
     print("Monocytes              :  ",cbc_monocytes,"%                     0 - 2%")
     print("Basophils              :  ",cbc_basophils,"%                     0-1%")
     if (gender == "male"):
-        print("RBC                    :  ",cbc_rbc,"million/cumm        4.5 - 6.0 million/cumm")
+        print("RBC                  :  ",cbc_rbc,"million/cumm         4.5 - 6.0 million/cumm")
     else:
-        print("RBC                    :  ",cbc_rbc,"million/cumm               4.0 - 5.5 million/cumm") 
-    print("Platelets              :  ",cbc_platelets,"Lakhs/cumm           1.5 - 4.5 Lakhs/cumm")
+        print("RBC                  :  ",cbc_rbc,"million/cumm                4.0 - 5.5 million/cumm") 
+    print("Platelets              :  ",cbc_platelets,"Lakhs/cumm          1.5 - 4.5 Lakhs/cumm")
     print("PCV (Hct)              :  ",cbc_pcv,"%                   40 - 60%")
     print("MCV                    :  ",cbc_mcv," fl                 83 - 101 fl")
     print("MCH                    :  ",cbc_mch," Pg                 27 - 33 Pg")
